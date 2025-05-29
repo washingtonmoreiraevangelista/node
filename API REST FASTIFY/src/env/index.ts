@@ -1,4 +1,4 @@
-import {config} from 'dotenv'
+import { config } from 'dotenv'
 import { z } from 'zod'
 
 // configura o dotenv para pegar as variaveis de ambiente
@@ -17,13 +17,13 @@ const envSchema = z.object({
 })
 
 
- const _env = envSchema.safeParse(process.env)
+const _env = envSchema.safeParse(process.env)
 
 
-if(_env.success === false) {
+if (_env.success === false) {
   console.error('⚠️ Invalid environment variables', _env.error.format())
 
   throw new Error('Invalid environment variables.')
-} 
+}
 
 export const env = _env.data
